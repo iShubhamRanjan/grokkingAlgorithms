@@ -1,7 +1,20 @@
 tests = []
-tests.append({'input': {'arr': [3,5,7,9,11,13,15,17,19], 'x': 11}, 'output': 4})
-tests.append({'input': {'arr': [8,8,6,6,6,6,6,6,3,2,2,2,0,0,0], 'x': 6}, 'output': 2})
+tests.append({
+    'input': {
+        'arr': [3, 5, 7, 9, 11, 13, 15, 17, 19],
+        'x': 11
+    },
+    'output': 4
+})
+tests.append({
+    'input': {
+        'arr': [8, 8, 6, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
+        'x': 6
+    },
+    'output': 2
+})
 arr, x = tests[0]['input']['arr'], tests[0]['input']['x']
+
 
 def test_location(mid):
   if x == arr[mid]:
@@ -13,6 +26,7 @@ def test_location(mid):
     return 'left'
   elif x < arr[mid]:
     return 'right'
+
 
 def binary_search(low, high):
   if low > high:
@@ -27,6 +41,7 @@ def binary_search(low, high):
     return binary_search(low, mid - 1)
   elif result == 'right':
     return binary_search(mid + 1, high)
+
 
 def exec():
   result = binary_search(0, len(arr) - 1)
